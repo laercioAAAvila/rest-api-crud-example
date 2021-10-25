@@ -25,6 +25,11 @@ public class CarController {
     public Car saveCar (@RequestBody Car car){
         return carRepository.save(car);
     }
+    @GetMapping("/car/edit/{id}")
+    public Car updateCar(@PathVariable Long id, @RequestBody Car car){
+        car.setId(id);
+        return carRepository.save(car);
+    }
     @DeleteMapping("/car/{id}")
     public void deleteCar(@PathVariable Long id){
         carRepository.deleteById(id);
